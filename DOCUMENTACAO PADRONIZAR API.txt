@@ -1,0 +1,50 @@
+Cybershield-API
+
+1- Banco de dados
+	Possiveis Tabelas:
+	 - Usuário - ID, nome, email, senha
+	 
+	 - Form - ID, tipo de ataque, descrição, resolução
+
+2- API
+	Possiveis CRUDS
+	- GET: Mostrar todos os usuários.
+	
+	- POST: Cadastro.
+	
+	- POST: Login.
+	
+	- PUT: Atualizar usuário. 
+	
+	- Delete: Deletar conta do usuário. 
+-------------------------------------------------------------------
+	- GET: Mostrar todos os forms cadastrados.
+	
+	- POST: Cadastrar form.
+	
+	- PUT: Atualizar form.
+	
+	- Delete: Deletar form.
+
+3 - Regras de Negócio 
+	- Manter código limpo e indentado.
+
+	- Usar padrão camelCase para nomeação de arquivo.
+	
+	- Criar arquivos em suas pastas correspondentes. 
+	
+	- Arquivos devem seguir o seguinte padrão:
+	  Pasta sendo a controller o arquivo deve estar da 
+	  seguinte maneira: nomeArquivo.controller.js .
+	  O mesmo se aplica aos outros arquivos.
+	
+	- O nome do arquivo deve ser o mesmo da função que 
+	  estiver dentro dele
+	
+	- Um arquivo para cada crud. Sabendo que esses arquivos
+	  devem estar dentro de uma única pasta, que tenha seu 
+	  nome correspondente ao tema do crud
+	
+	- Documentação de código, deve ser algo direto e de facíl
+	entendimento, evite fazer comentarios dispersos.
+	
