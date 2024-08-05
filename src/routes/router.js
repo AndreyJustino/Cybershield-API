@@ -1,9 +1,8 @@
 import { Router } from "express";
+import cadastrar from "../controller/user/cadastrar.controller.js";
 
 const routes = Router()
 
-routes.get("/helloWord", (req, res) => {
-    res.send("Hello, World!")
-})
+routes.post("/cadastrar", cadastrar)
 
 export default routes
