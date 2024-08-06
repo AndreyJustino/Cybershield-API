@@ -8,17 +8,19 @@ async function cadastrar(req, res) {
             res.status(400).json({message: "Preencha todos os campos!"});
         } else{
             
-            const userCreate = await Cybershield.findOrCreate({
-                where: {email: newUser.email},
+            const [user, created] = await Cybershield.findOrCreate({
+                where: {
+                    email: newUser.email
+                },
                 defaults: newUser
             })
-
-            if(!userCreate[1]){
-                res.status(400).json({message: "Email já cadastrado!"});
+    
+            if(!created){
+                res.status(409).json({message: "Email já cadastrado!"});
             } else{
                 res.status(200).json({
                     message: "Usuario cadastrado com sucesso.",
-                    user: userCreate
+                    user: user
                 })
             }
         }
