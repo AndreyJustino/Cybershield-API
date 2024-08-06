@@ -3,6 +3,7 @@ import routes from "./routes/router.js"
 import sequelize from "./database/config.js"
 
 const app = express()
+
 app.use(express.json())
 
 app.use("/", routes)
