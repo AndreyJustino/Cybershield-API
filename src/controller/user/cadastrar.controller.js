@@ -9,7 +9,10 @@ async function cadastrar(req, res) {
         } else{
             
             const userCreate = await Cybershield.findOrCreate({
-                where: {email: newUser.email},
+                where: {
+                    name: newUser.name,
+                    email: newUser.email
+                },
                 defaults: newUser
             })
 
