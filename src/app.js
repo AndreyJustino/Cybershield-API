@@ -7,13 +7,15 @@ app.use(express.json())
 
 app.use("/", routes)
 
+const PORT = process.env.PORT_API || 3000
+
 // sincronizando a conexão com o banco e iniciando o servidor
 sequelize.sync().then(async () => {
     try{
         await sequelize.authenticate()
 
-        app.listen(3000, (req,res) => {
-            console.log("Servidor na porta 3000")
+        app.listen(PORT, (req,res) => {
+            console.log("Servidor iniciado!")
         })
 
     }catch(error) {
