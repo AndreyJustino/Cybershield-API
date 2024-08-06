@@ -3,6 +3,7 @@ import routes from "./routes/router.js"
 import sequelize from "./database/config.js"
 
 const app = express()
+
 app.use(express.json())
 
 app.use("/", routes)
@@ -13,7 +14,7 @@ sequelize.sync().then(async () => {
         await sequelize.authenticate()
 
         app.listen(3000, (req,res) => {
-            console.log("Servidor na porta 3000")
+            console.log("Server starting in port 3000")
         })
 
     }catch(error) {
