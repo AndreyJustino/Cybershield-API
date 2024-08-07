@@ -1,6 +1,6 @@
 import { Cybershield } from "../../model/model.js";
 
-async function cadastrar(req, res) {
+async function register(req, res) {
     try{
         const newUser = req.body;
 
@@ -33,4 +33,4 @@ async function cadastrar(req, res) {
     }
 }
 
-export default cadastrar
+export default register
