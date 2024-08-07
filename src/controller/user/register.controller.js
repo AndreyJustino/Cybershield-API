@@ -26,9 +26,9 @@ async function register(req, res) {
         }
 
     }catch(error){
-        res.status(400).json({
-            message: "Algum erro aconteceu.",
-            erro: error
+        res.status(500).json({
+            message: "Erro ao cadastrar usuario",
+            error: error
         })
     }
 }
