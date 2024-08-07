@@ -48,3 +48,43 @@ export const IncidentComent = sequelize.define("Incident_Coment",{
         allowNull:true
     }
    })
+
+
+   
+export const Incident_types = sequelize.define("Incident_types",{
+    incident_type_id : {
+        type: DataTypes.INTEGER,
+        primaryKey:true,
+        autoIncrement:true,
+    } ,
+
+    Incident_type_name : {
+        type: DataTypes.VARCHAR,
+        primaryKey:false,
+    } ,
+    Incident_type_description :{
+        type: DataTypes.TEXT,
+     } ,
+     Incident_type_category :{ 
+        type: DataTypes.VARCHAR,
+     }, 
+     Incident_type_priority :{ 
+        type: DataTypes.VARCHAR,
+     }, 
+     Incident_type_creation_Date :{
+        type: DataTypes.DATETIME,
+     },
+
+     Incident_type_update_Date :{
+        type: DataTypes.DATETIME,
+     },
+
+     Incident_type_status  :{
+        type: DataTypes.VARCHAR,
+     }
+
+
+
+   })
+
+
