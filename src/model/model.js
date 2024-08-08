@@ -48,3 +48,34 @@ export const IncidentComent = sequelize.define("Incident_Coment",{
         allowNull:true
     }
    })
+
+   export const ReductionsActions = sequelize.define("ReductionsActions",{
+    action_id: {
+        type: DataTypes.INTEGER,
+        allowNull:false,
+        primaryKey:true,
+        autoIncrement:true,
+    } ,
+    department_id: {
+        type: DataTypes.INTEGER,
+        allowNull:false,
+    },
+    incident_id:{
+        type:DataTypes.INTEGER,
+        allowNull:false,
+    },
+    action_date:{
+        type:DataTypes.DATE,
+        allowNull:false,
+    },
+
+    action_taken:{
+        type:DataTypes.STRING,
+        allowNull:false,
+    },
+
+    effectiveness:{
+        type:DataTypes.STRING,
+        allowNull:false,
+    },
+})
