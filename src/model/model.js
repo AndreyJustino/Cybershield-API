@@ -32,7 +32,7 @@ export const IncidentComent = sequelize.define("Incident_Coment",{
     } ,
     incident_Id: {
         type: DataTypes.INTEGER,
-        allowNull:true,
+        allowNull:false,
     },
     comment:{
         type:DataTypes.STRING,
@@ -49,7 +49,7 @@ export const IncidentComent = sequelize.define("Incident_Coment",{
     }
    })
 
-   export const ReductionsActions = sequelize.define("ReductionsActions",{
+export const ReductionsActions = sequelize.define("ReductionsActions",{
     action_id: {
         type: DataTypes.INTEGER,
         allowNull:false,
@@ -79,3 +79,4 @@ export const IncidentComent = sequelize.define("Incident_Coment",{
         allowNull:false,
     },
 })
+
