@@ -4,14 +4,14 @@ async function update(req, res){
     try{
         const user = req.body
 
-        if(!user.id || !user.name || !user.password || !user.email){
+        if(!user.name || !user.password || !user.email){
             res.status(400).json({
                 message: "Preencha todos os campos."
             })
         }else{
             const findUser = await Cybershield.findOne({
                 where: {
-                    id: user.id
+                    email: user.email
                 }
             })
 
@@ -26,14 +26,14 @@ async function update(req, res){
                     },
                     {
                         where: {
-                            id: user.id
+                            email: user.email
                         }
                     }
                 )
                 
                 const userUpdate = await Cybershield.findOne({
                     where: {
-                        id: user.id
+                        email: user.email
                     }
                 })
     
