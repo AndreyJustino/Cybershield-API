@@ -4,6 +4,7 @@ import routesUser from "./routes/user.routes.js"
 import routesComent from "./routes/incidentComents.routes.js"
 import routesReductionsActions from "./routes/ReductionsActions.routes.js"
 
+
 const app = express()
 
 app.use(express.json())
@@ -11,6 +12,8 @@ app.use(express.json())
 app.use("/", routesComent)
 app.use("/", routesUser)
 app.use("/", routesReductionsActions)
+
+
 
 const PORT = process.env.PORT_API || 3000
 

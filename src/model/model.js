@@ -2,7 +2,7 @@ import sequelize from "../database/config.js";
 import { DataTypes } from "sequelize";
 
 // criando tabela usuario
-export const Cybershield = sequelize.define("Usuario", {
+export const usuario = sequelize.define("Usuario", {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
