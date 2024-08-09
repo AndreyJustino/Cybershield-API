@@ -1,4 +1,4 @@
-import { Cybershield } from "../../model/model.js";
+import { usuario } from "../../model/model.js";
 
 async function register(req, res) {
     try{
@@ -8,7 +8,7 @@ async function register(req, res) {
             res.status(400).json({message: "Preencha todos os campos!"});
         } else{
             
-            const [user, created] = await Cybershield.findOrCreate({
+            const [user, created] = await usuario.findOrCreate({
                 where: {
                     email: newUser.email
                 },

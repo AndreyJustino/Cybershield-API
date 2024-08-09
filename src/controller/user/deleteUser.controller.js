@@ -1,0 +1,1 @@
+import { usuario } from "../../model/model.js";
