@@ -18,7 +18,7 @@ async function register(req, res) {
             if(!created){
                 res.status(409).json({message: "Email já cadastrado!"});
             } else{
-                res.status(200).json({
+                res.status(201).json({
                     message: "Usuario cadastrado com sucesso.",
                     user: user
                 })
