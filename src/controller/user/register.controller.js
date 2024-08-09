@@ -1,6 +1,6 @@
 import { Cybershield } from "../../model/model.js";
 
-async function cadastrar(req, res) {
+async function register(req, res) {
     try{
         const newUser = req.body;
 
@@ -26,11 +26,11 @@ async function cadastrar(req, res) {
         }
 
     }catch(error){
-        res.status(400).json({
-            message: "Algum erro aconteceu.",
-            erro: error
+        res.status(500).json({
+            message: "Erro ao cadastrar usuario",
+            error: error
         })
     }
 }
 
-export default cadastrar
+export default register
