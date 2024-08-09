@@ -1,6 +1,6 @@
 import { IncidentComent } from "../../model/model.js";
 
-const GetIncidentComent = async (req,res)=>{
+const GetIncidentComents = async (req,res)=>{
     try{
          const executeGet = await IncidentComent.findAll()//nessa const unimos nosso model ao metodo,se der certo mostra ele
          res.status(200).send(executeGet)
@@ -9,6 +9,6 @@ const GetIncidentComent = async (req,res)=>{
 }
 };
 
-export default{GetIncidentComent}
+export default{GetIncidentComents}
 
 
