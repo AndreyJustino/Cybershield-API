@@ -9,6 +9,6 @@ const GetIncidentComents = async (req,res)=>{
 }
 };
 
-export default{GetIncidentComents}
+export {GetIncidentComents}
 
 
