@@ -1,8 +1,8 @@
-import { Cybershield } from "../../model/model.js";
+import { usuario } from "../../model/model.js";
 
 async function getAllUser(req, res) {
     try{
-        const allUser = await Cybershield.findAll()
+        const allUser = await usuario.findAll()
 
         res.status(200).json({
             message: "Todos os usuarios encontrados até agora.",

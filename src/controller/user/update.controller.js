@@ -1,24 +1,24 @@
-import { Cybershield } from "../../model/model.js";
+import { usuario } from "../../model/model.js";
 
 async function update(req, res){
     try{
         const user = req.body
 
-        if(!user.id || !user.name || !user.password || !user.email){
+        if(!user.name || !user.password || !user.email){
             res.status(400).json({
                 message: "Preencha todos os campos."
             })
         }else{
-            const findUser = await Cybershield.findOne({
+            const findUser = await usuario.findOne({
                 where: {
-                    id: user.id
+                    email: user.email
                 }
             })
 
             if(!findUser){
                 res.status(404).json({message: "Usuario não encontrado."})
             } else{
-                await Cybershield.update(
+                await usuario.update(
                     {
                         name: user.name,
                         password: user.password,
@@ -26,14 +26,14 @@ async function update(req, res){
                     },
                     {
                         where: {
-                            id: user.id
+                            email: user.email
                         }
                     }
                 )
                 
-                const userUpdate = await Cybershield.findOne({
+                const userUpdate = await usuario.findOne({
                     where: {
-                        id: user.id
+                        email: user.email
                     }
                 })
     
