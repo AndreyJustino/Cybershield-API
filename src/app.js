@@ -10,6 +10,7 @@ app.use(express.json())
 app.use("/", routesComent)
 app.use("/", routesUser)
 
+
 const PORT = process.env.PORT_API || 3000
 
 // sincronizando a conexão com o banco e iniciando o servidor
