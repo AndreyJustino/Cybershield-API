@@ -4,7 +4,7 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --passWithNoTests",
     "start": "nodemon src/app.js"
   },
   "keywords": [],
@@ -17,5 +17,9 @@
     "sequelize": "^6.37.3",
     "sqlite3": "^5.1.7"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
 }
