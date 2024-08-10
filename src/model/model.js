@@ -80,3 +80,42 @@ export const ReductionsActions = sequelize.define("ReductionsActions",{
     },
 })
 
+export const Incident_types = sequelize.define("Incident_types",{
+    incident_type_id : {
+        type: DataTypes.INTEGER,
+        primaryKey:true,
+        autoIncrement:true,
+    } ,
+
+    Incident_type_name : {
+        type: DataTypes.STRING,
+        allowNull:false,
+    } ,
+    Incident_type_description :{
+        type: DataTypes.STRING,
+        allowNull:false,
+     } ,
+     Incident_type_category :{ 
+        type: DataTypes.STRING,
+        allowNull:false,
+     }, 
+     Incident_type_priority :{ 
+        type: DataTypes.STRING,
+        allowNull:false,
+     }, 
+     Incident_type_creation_Date :{
+        type: DataTypes.DATE,
+     },
+
+     Incident_type_update_Date :{
+        type: DataTypes.DATE,
+     },
+
+     Incident_type_status  :{
+        type: DataTypes.STRING,
+     }
+
+
+
+   })
+
