@@ -9,7 +9,7 @@ async function update(req, res){
                 message: "Preencha todos os campos."
             })
         }else{
-            const findUser = await usuario.findOne({
+            const findUser = await usuario.findOne({ 
                 where: {
                     email: user.email
                 }
