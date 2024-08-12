@@ -23,7 +23,7 @@ export const usuario = sequelize.define("Usuario", {
     }
 })
 
-export const IncidentComent = sequelize.define("Incident_Coment",{
+export const incidentComent = sequelize.define("Incident_Coment",{
     comment_id : {
         type: DataTypes.INTEGER,
         allowNull:false,
