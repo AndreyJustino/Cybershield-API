@@ -1,8 +1,10 @@
-const DeleteReductionAction = async (request, response) => {  
+import { reductionsActions } from "../../model/model.js";
+
+const deleteReductionAction = async (request, response) => {  
 	let idParam = request.params.id;
 
 	try {
-		let ReductionFromDelete = await ReductionAction.findByPk(idParam)
+		let ReductionFromDelete = await reductionsActions.findByPk(idParam)
 
       	if (!ReductionFromDelete) {
     return response.send("Not found"); 
@@ -16,4 +18,4 @@ const DeleteReductionAction = async (request, response) => {
 	}
 }
 
-export{ DeleteReductionAction}
+export default deleteReductionAction

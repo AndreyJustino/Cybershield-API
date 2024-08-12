@@ -1,13 +1,13 @@
-import { ReductionsActions } from "../../model/model.js";
+import { reductionsActions } from "../../model/model.js";
 
-const UpReductionAction = async (request, response) => { 
+const upReductionAction = async (request, response) => { 
 	const idParam = request.params.id; 
 
 	try {
 		
 		const TakeReductionAction = request.body  
 		
-		const FindReductionAction = await ReductionsActions.findByPk(idParam) 
+		const FindReductionAction = await reductionsActions.findByPk(idParam) 
 
 		if (!FindReductionAction) {
       throw new Error("Not found");
@@ -27,4 +27,4 @@ const UpReductionAction = async (request, response) => {
 	}
 };
 
-export{UpReductionAction}
+export default upReductionAction

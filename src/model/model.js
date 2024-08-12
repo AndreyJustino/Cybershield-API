@@ -49,7 +49,7 @@ export const IncidentComent = sequelize.define("Incident_Coment",{
     }
    })
 
-export const ReductionsActions = sequelize.define("ReductionsActions",{
+export const reductionsActions = sequelize.define("ReductionsActions",{
     action_id: {
         type: DataTypes.INTEGER,
         allowNull:false,
