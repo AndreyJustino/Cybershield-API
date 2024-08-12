@@ -27,7 +27,7 @@ const deleteIncidentComent = async (req,res)=>{
             })
         }
         res.status(200).json({
-            message:"dado deletado com sucesso!"
+            message:"dado completamente deletado com sucesso!"
         })
     }         
     }catch (error){

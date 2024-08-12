@@ -11,7 +11,7 @@ const routesComent = Router()
 routesComent.post("newIncidentComent",CreateComent)
 routesComent.get("AllIncidentsComents",GetIncidentComents)
 routesComent.put("UpIncidentsComents",generateUpdate)
-routesComent.delete("DeleteIncidentComents",deleteIncidentComent)
+routesComent.delete("DeleteIncidentsComents",deleteIncidentComent)
 
 
 export default routesComent
