@@ -7,6 +7,12 @@
     "test": "jest --passWithNoTests",
     "start": "nodemon src/app.js"
   },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -19,6 +25,9 @@
   },
   "description": "",
   "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.3",
+    "babel-jest": "^29.7.0",
     "jest": "^29.7.0",
     "supertest": "^7.0.0"
   }

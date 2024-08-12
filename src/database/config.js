@@ -1,5 +1,7 @@
 import { Sequelize } from 'sequelize';
-import 'dotenv/config'
+import dotenv from "dotenv"
+
+dotenv.config()
 
 // criando estancia do sequelize para se conectar com o banco no mysql
 const sequelize = new Sequelize(process.env.NAME_BANK, 

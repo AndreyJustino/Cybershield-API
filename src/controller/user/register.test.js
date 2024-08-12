@@ -1,5 +1,7 @@
-const request = require("supertest")
-require("dotenv").config()
+import request from 'supertest';
+import dotenv from 'dotenv';
+
+dotenv.config()
 
 describe("Testing return register", () => {
     test("Should return 400 if there are empty fields", async () => {

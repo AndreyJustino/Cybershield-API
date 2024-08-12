@@ -1,5 +1,7 @@
-const request = require("supertest")
-require("dotenv").config()
+import request from 'supertest';
+import dotenv from 'dotenv';
+
+dotenv.config()
 
 describe("Testing response getUser", () => {
     test("Should return status 202 and body if user found", async () => {
