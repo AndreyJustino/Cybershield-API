@@ -1,12 +1,12 @@
-import { Incident_types } from "../../model/model.js"; // ajuste o caminho conforme necessário
+import { incident_types } from "../../model/model.js"; // ajuste o caminho conforme necessário
 
- const getIncidentType = async (req, res) => {
+const getIncidentType = async (req, res) => {
     try {
         const { id } = req.params;
         
         if (id) {
             // Busca por um tipo de incidente específico
-            const incidentType = await Incident_types.findByPk(id);
+            const incidentType = await incident_types.findByPk(id);
             if (incidentType) {
                 res.status(200).send({
                     message: "Tipo de incidente encontrado com sucesso",
@@ -17,7 +17,7 @@ import { Incident_types } from "../../model/model.js"; // ajuste o caminho confo
             }
         } else {
             // Busca por todos os tipos de incidentes
-            const incidentTypes = await Incident_types.findAll();
+            const incidentTypes = await incident_types.findAll();
             res.status(200).send({
                 message: "Tipos de incidentes recuperados com sucesso",
                 data: incidentTypes,
@@ -27,4 +27,4 @@ import { Incident_types } from "../../model/model.js"; // ajuste o caminho confo
         res.status(500).send({ error: `Erro: ${error.message}` });
     }
 };
-export{getIncidentType}
+export default getIncidentType

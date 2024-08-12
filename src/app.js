@@ -4,7 +4,7 @@ import sequelize from "./database/config.js"
 import routesUser from "./routes/user.routes.js"
 import routesComent from "./routes/incidentComents.routes.js"
 import routesReductionsActions from "./routes/reductionsActions.routes.js";
-import { routerIcidentType } from "./routes/incidentType.routes.js"
+import routerIcidentType from "./routes/incidentType.routes.js"
 
 const app = express()
 dotenv.config()
