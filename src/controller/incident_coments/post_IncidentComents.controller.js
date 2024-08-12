@@ -1,9 +1,9 @@
-import { IncidentComent } from "../../model/model.js";
+import { incidentComent } from "../../model/model.js";
 
- const CreateComent = async (req,res)=>{
+ const createComent = async (req,res)=>{
   try{
     const ProcessPost = req.body
-    const CreatePost = await IncidentComent.create(ProcessPost)
+    const CreatePost = await incidentComent.create(ProcessPost)
     
     res.status(201).send({
         mensage:"Comentario adicionado com sucesso",
@@ -14,4 +14,4 @@ import { IncidentComent } from "../../model/model.js";
    }
 };  
 
-export {CreateComent}   
+export default createComent   
