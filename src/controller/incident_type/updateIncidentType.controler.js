@@ -1,13 +1,13 @@
-import { incident_types } from "../../model/model.js"; // ajuste o caminho conforme necessário
+import { Incidents } from "../../model/model.js"; // ajuste o caminho conforme necessário
 
 const updateIncidentType = async (req, res) => {
     try {
       const { id } = req.params;
-      const [updated] = await incident_types.update(req.body, {
+      const [updated] = await Incidents.update(req.body, {
         where: { incident_type_id: id },
       });
       if (updated) {
-        const updatedIncidentType = await incident_types.findByPk(id);
+        const updatedIncidentType = await Incidents.findByPk(id);
         res.status(200).send({
           message: "Tipo de incidente atualizado com sucesso",
           data: updatedIncidentType,

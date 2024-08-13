@@ -80,7 +80,7 @@ export const reductionsActions = sequelize.define('ReductionsActions', {
   },
 });
 
-export const Incidents = sequelize.define('Incidents ', {
+export const Incidents = sequelize.define('Incidents', {
   incidents_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
