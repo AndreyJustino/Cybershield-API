@@ -8,10 +8,10 @@ import deleteIncidentComent from "../controller/incident_coments/delete_Incident
 
 const routesComent = Router()
 
-routesComent.post("newIncidentComent",createComent)
-routesComent.get("AllIncidentsComents",getIncidentComents)
-routesComent.put("UpIncidentsComents",generateUpdate)
-routesComent.delete("DeleteIncidentsComents",deleteIncidentComent)
+routesComent.post("/newIncidentComent",createComent)
+routesComent.get("/AllIncidentsComents",getIncidentComents)
+routesComent.put("/UpIncidentsComents",generateUpdate)
+routesComent.delete("/DeleteIncidentsComents",deleteIncidentComent)
 
 
 export default routesComent
