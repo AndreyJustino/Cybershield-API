@@ -1,5 +1,6 @@
 import express from "express"
 import dotenv from 'dotenv';
+import cors from "cors"
 import sequelize from "./database/config.js"
 import routesUser from "./routes/user.routes.js"
 import routesComent from "./routes/incidentComents.routes.js"
@@ -10,6 +11,7 @@ const app = express()
 dotenv.config()
 
 app.use(express.json())
+app.use(cors({origin: "https://cybershield-api.onrender.com"}))
 
 app.use("/", routesComent)
 app.use("/", routesUser)
