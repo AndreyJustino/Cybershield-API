@@ -21,7 +21,7 @@ describe("test controller: getIncidentTypes",()=>{
 describe("test controller: getIncidentTypes",()=>{
     it("deve mandar todos oscomentarios de incidentes",async()=>{
        
-        incidentComent.findAll.mockRegectadValue(new Error("Error"))
+        incidentComent.findAll.mockRejectadValue(new Error("Error"))
         const response = await request(app).get("/AllIncidentsComents")
         expect(response.status).toBe(500)
         expect(response.body).toEqual({
