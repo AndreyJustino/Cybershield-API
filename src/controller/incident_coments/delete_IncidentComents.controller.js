@@ -1,4 +1,4 @@
-import { IncidentComent } from "../../model/model.js";
+import { incidentComent } from "../../model/model.js";
 
 const deleteIncidentComent = async (req,res)=>{
     try{
@@ -9,7 +9,7 @@ const deleteIncidentComent = async (req,res)=>{
                 message:"erro,dados incompletos"
             })
         } else{
-             const icDatabase = await IncidentComent.findOne({
+             const icDatabase = await incidentComent.findOne({
                 where: {
                     improvement: incidentComents.improvement
                 }
@@ -20,7 +20,7 @@ const deleteIncidentComent = async (req,res)=>{
             message:"dado nao encontrado"    
             })    
         }else{
-            const executeDelete = IncidentComent.destroy({
+            const executeDelete = incidentComent.destroy({
                 where:{
                     improvement: icDatabase.improvement
                 }
@@ -38,4 +38,4 @@ const deleteIncidentComent = async (req,res)=>{
     }
 }
 
-export {deleteIncidentComent}
+export default deleteIncidentComent

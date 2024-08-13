@@ -1,5 +1,4 @@
-
-import { IncidentComent } from "../../model/model.js";
+import { incidentComent } from "../../model/model.js";
 
 const generateUpdate = async (req,res)=>{
  try{   
@@ -10,7 +9,7 @@ const generateUpdate = async (req,res)=>{
         message: "erro,dados incompletos!"
     })
  } else{
-        const findIncidentComents = await IncidentComent.findOne({
+        const findIncidentComents = await incidentComent.findOne({
           where:{
                 improvement:capturarDados.improvement
         } 
@@ -18,7 +17,7 @@ const generateUpdate = async (req,res)=>{
   if(!findIncidentComents){
           res.status(404).json({message: "informaçao nao encontrada"})
  } else{
-    await IncidentComent.update(
+    await incidentComent.update(
         {
             comment: IncidentComents.comment,
             make:IncidentComents.make,
@@ -31,7 +30,7 @@ const generateUpdate = async (req,res)=>{
   }
 )
   
-     const updateIncidentComment = IncidentComent.findOne({
+     const updateIncidentComment = incidentComent.findOne({
        where:{
        improvement:IncidentComents.improvement 
     }
@@ -51,5 +50,5 @@ const generateUpdate = async (req,res)=>{
   }
  }
 
- export {generateUpdate}
+ export default generateUpdate
 

@@ -1,12 +1,18 @@
 import { Router } from "express";
-import { PostReductionsActions } from "../controller/reductionsActions/postReductionsactions.js";
-import { getReductionsActions } from "../controller/reductionsActions/getReductionsActions.js";
-import { DeleteReductionAction } from "../controller/reductionsActions/deleteReductionAction.js";
-import { UpReductionAction } from "../controller/reductionsActions/updateReductionAction.js";
+
+import postReductionsActions from "../controller/reductionsActions/postReductionsActions.js"
+
+import getReductionsActions from "../controller/reductionsActions/getReductionsActions.js";
+
+import deleteReductionAction from "../controller/reductionsActions/deleteReductionAction.js";
+
+import upReductionAction from "../controller/reductionsActions/updateReductionAction.js";
 
 const routesReductionsActions = Router()
-    routesReductionsActions.post("/postReductionsactions", PostReductionsActions)
-    routesReductionsActions.get("/reductionsActions", getReductionsActions)
-    routesReductionsActions.delete("/deleteReductionAction", DeleteReductionAction)
-    routesReductionsActions.put("/updateReductionAction", UpReductionAction)
+
+routesReductionsActions.post("/postReductionsactions", postReductionsActions)
+routesReductionsActions.get("/reductionsActions", getReductionsActions)
+routesReductionsActions.delete("/deleteReductionAction", deleteReductionAction)
+routesReductionsActions.put("/updateReductionAction", upReductionAction)
+
 export default routesReductionsActions

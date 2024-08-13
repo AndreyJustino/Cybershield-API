@@ -1,19 +1,22 @@
-import { ReductionsActions } from "../../model/model.js";
+import { reductionsActions } from "../../model/model.js";
 
-const PostReductionsActions = async (req,res)=>{
+async function postReductionsActions (req,res) {
     try{
-      const ProcessPost = req.body
-      const NewReductionsAction = await ReductionsActions.create(ProcessPost)
+      const processPost = req.body
+      const newReductionsAction = await reductionsActions.create(processPost)
       
       res.status(201).send({
           mensage:"Comentario adicionado com sucesso",
-          NewReductions: NewReductionsAction,
+          NewReductions: newReductionsAction,
       });
      } catch{
-      res.status(500).send({ error:"erro,nao foi possivel adicionar novo comentario de Incidente"})
+        res.status(500).send({ 
+          error:"erro,nao foi possivel adicionar novo comentario de Incidente"
+        })
      }
   };
-  export {PostReductionsActions};
+
+export default postReductionsActions
 
 
   

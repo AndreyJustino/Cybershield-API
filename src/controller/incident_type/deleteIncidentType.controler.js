@@ -1,7 +1,9 @@
+import { incident_types } from "../../model/model.js";
+
 const deleteIncidentType = async (req, res) => {
     try {
       const { id } = req.params;
-      const deleted = await Incident_types.destroy({
+      const deleted = await incident_types.destroy({
         where: { incident_type_id: id },
       });
       if (deleted) {
@@ -16,4 +18,4 @@ const deleteIncidentType = async (req, res) => {
     }
   };
   
-  export { deleteIncidentType };
+export default deleteIncidentType;
