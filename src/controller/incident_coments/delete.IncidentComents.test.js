@@ -16,7 +16,7 @@ describe("teste controller:GetIncidenComents",()=>{
         }];
    incidentComent.findAll.mockResolvedValue(MyMock)
    
-   const response = await request(app).get("/AllIncidentsComents")
+   const response = await request(app).delete("/DeleteIncidentsComents")
    expect(response.status).toBe(200)
    expect(response.body).toEqual(MyMock)
     })
@@ -27,7 +27,7 @@ describe("teste controller:GetIncidentComents",()=>{
     
     it("deve enviar todos os comentarios de Incidente", async () =>{
         incidentComent.findAll.mockRejectadValue(new Error("Error"))
-        const response = await request(app).get("/AllIncidentsComents")
+        const response = await request(app).delete("/DeleteIncidentsComents")
         expect(response.status).toBe(500)
         expect(response.body).toEqual({
             error: "falha ao encontrar comentarios de incidente"
