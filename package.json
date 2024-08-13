@@ -7,12 +7,6 @@
     "test": "jest --passWithNoTests",
     "start": "nodemon server.js"
   },
-  "jest": {
-    "testEnvironment": "node",
-    "transform": {
-      "^.+\\.js$": "babel-jest"
-    }
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",

@@ -1,5 +1,5 @@
 export default {
-	collectCoverage: true,
+	collectCoverage: false,
 	coverageReporters: ["json", "html"],
 	transform: {
 		"^.+\\.jsx?$": "babel-jest",
