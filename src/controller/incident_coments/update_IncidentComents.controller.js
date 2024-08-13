@@ -1,9 +1,3 @@
-//Primeiro passo: importar o model para a manipulaçao de dados!
-//Segundo passo:  Definir uma Função para Atualização:
-//Terceiro passo: Capturado Dados da Solicitação 
-//Quarto: garanto que todos os campos obrigatorios serao preenchidos 
-// quinto: caso realmente todos os campos forem prenchidos FindOne (encontre um unico registro no banco de dados) vamos pedir "improvment" 
-
 import { incidentComent } from "../../model/model.js";
 
 const generateUpdate = async (req,res)=>{
