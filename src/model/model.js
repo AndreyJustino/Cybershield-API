@@ -1,121 +1,129 @@
-import sequelize from "../database/config.js";
-import { DataTypes } from "sequelize";
+import { DataTypes } from 'sequelize';
+import sequelize from '../database/config.js';
 
 // criando tabela usuario
-export const usuario = sequelize.define("Usuario", {
-    id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true
-    },
-    name: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    }
-})
+export const usuario = sequelize.define('Usuario', {
+  id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+});
 
-export const incidentComent = sequelize.define("Incident_Coment",{
-    comment_id : {
-        type: DataTypes.INTEGER,
-        allowNull:false,
-        primaryKey:true,
-        autoIncrement:true,
-    } ,
-    incident_Id: {
-        type: DataTypes.INTEGER,
-        allowNull:false,
-    },
-    comment:{
-        type:DataTypes.STRING,
-        allowNull:true,
-    },
-    make:{
-        type:DataTypes.DATE,
-        allowNull:true
-    },
+export const incidentComent = sequelize.define('Incident_Coment', {
+  comment_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  incident_Id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  comment: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  make: {
+    type: DataTypes.DATE,
+    allowNull: true,
+  },
 
-    improvement:{
-        type:DataTypes.DATE,
-        allowNull:true
-    }
-   })
+  improvement: {
+    type: DataTypes.DATE,
+    allowNull: true,
+  },
+});
 
-export const reductionsActions = sequelize.define("ReductionsActions",{
-    action_id: {
-        type: DataTypes.INTEGER,
-        allowNull:false,
-        primaryKey:true,
-        autoIncrement:true,
-    } ,
-    department_id: {
-        type: DataTypes.INTEGER,
-        allowNull:false,
-    },
-    incident_id:{
-        type:DataTypes.INTEGER,
-        allowNull:false,
-    },
-    action_date:{
-        type:DataTypes.DATE,
-        allowNull:false,
-    },
+export const reductionsActions = sequelize.define('ReductionsActions', {
+  action_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  department_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  incident_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  action_date: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
 
-    action_taken:{
-        type:DataTypes.STRING,
-        allowNull:false,
-    },
+  action_taken: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 
-    effectiveness:{
-        type:DataTypes.STRING,
-        allowNull:false,
-    },
-})
+  effectiveness: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+});
 
-export const incident_types = sequelize.define("Incident_types",{
-    incident_type_id : {
-        type: DataTypes.INTEGER,
-        primaryKey:true,
-        autoIncrement:true,
-    } ,
+export const Incidents = sequelize.define('Incidents ', {
+  incidents_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  user_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    primaryKey: true,
+  },
+  incident_type_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    primaryKey: true,
+  },
+  presentation: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  department_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    primaryKey: true,
+  },
+  username: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  severity: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 
-    Incident_type_name : {
-        type: DataTypes.STRING,
-        allowNull:false,
-    } ,
-    Incident_type_description :{
-        type: DataTypes.STRING,
-        allowNull:false,
-     } ,
-     Incident_type_category :{ 
-        type: DataTypes.STRING,
-        allowNull:false,
-     }, 
-     Incident_type_priority :{ 
-        type: DataTypes.STRING,
-        allowNull:false,
-     }, 
-     Incident_type_creation_Date :{
-        type: DataTypes.DATE,
-     },
-
-     Incident_type_update_Date :{
-        type: DataTypes.DATE,
-     },
-
-     Incident_type_status  :{
-        type: DataTypes.STRING,
-     }
-
-
-
-   })
-
+  date_reported: {
+    type: DataTypes.DATE,
+  },
+  damage_to_device: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  what_damage: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+});
