@@ -83,19 +83,17 @@ export const reductionsActions = sequelize.define('ReductionsActions', {
 export const Incidents = sequelize.define('Incidents', {
   incidents_id: {
     type: DataTypes.INTEGER,
+    autoIncrement: true,
     allowNull: false,
     primaryKey: true,
-    autoIncrement: true,
   },
   user_id: {
     type: DataTypes.INTEGER,
-    allowNull: false,
-    primaryKey: true,
+    allowNull: false
   },
   incident_type_id: {
     type: DataTypes.INTEGER,
-    allowNull: false,
-    primaryKey: true,
+    allowNull: false
   },
   presentation: {
     type: DataTypes.STRING,
@@ -103,8 +101,7 @@ export const Incidents = sequelize.define('Incidents', {
   },
   department_id: {
     type: DataTypes.INTEGER,
-    allowNull: false,
-    primaryKey: true,
+    allowNull: false
   },
   username: {
     type: DataTypes.STRING,
