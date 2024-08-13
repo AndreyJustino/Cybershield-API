@@ -1,9 +1,23 @@
 import request from 'supertest';
 import dotenv from 'dotenv';
+import sequelize from '../../database/config.js';
+import app from '../../app';
 
 dotenv.config()
 
 describe("Testing response getUser", () => {
+    let server;
+
+    beforeAll(async () => {
+        await sequelize.sync()
+        await sequelize.authenticate()
+        server = app.listen(process.env.PORT_API)
+    })
+
+    afterAll(async () => {
+        await sequelize.close()
+        await server.close()
+    })
     test("Should return status 202 and body if user found", async () => {
         const response = await request(`http://localhost:${process.env.PORT_API}`)
             .get("/getUser/admin@mail.com")
