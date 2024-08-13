@@ -7,7 +7,7 @@ import routesComent from "./routes/incidentComents.routes.js"
 import routesReductionsActions from "./routes/reductionsActions.routes.js";
 import routerIcidentType from "./routes/incidentType.routes.js"
 
-const app = express()
+ const app = express()
 dotenv.config()
 
 app.use(express.json())
