@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "jest --passWithNoTests",
-    "start": "nodemon src/app.js"
+    "start": "nodemon server.js"
   },
   "jest": {
     "testEnvironment": "node",
