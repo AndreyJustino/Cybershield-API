@@ -8,6 +8,9 @@ import getUser from "../controller/user/getUser.controller.js";
 
 const routesUser = Router()
 
+routesUser.get("/helloWord", (req, res) => {
+    res.status(200).send("Hello World")
+})
 routesUser.get("/getUser/:email", getUser)
 routesUser.get("/allUser", getAllUser)
 routesUser.post("/register", register)

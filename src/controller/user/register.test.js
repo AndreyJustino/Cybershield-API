@@ -2,16 +2,23 @@ import request from 'supertest';
 import dotenv from 'dotenv';
 import sequelize from '../../database/config.js';
 import app from '../../app';
+import testConnection from '../../middleware/testConnection.js';
 
 dotenv.config()
 
 describe("Testing return register", () => {
     let server;
-
+    let response;
     beforeAll(async () => {
-        await sequelize.sync()
-        await sequelize.authenticate()
-        server = app.listen(process.env.PORT_API)
+        await sequelize.sync().then(async () => {
+            await sequelize.authenticate()
+
+            response = await testConnection()
+
+            if(!response || response.status != 200){
+                server = app.listen(process.env.PORT_API)
+            }
+        })
     })
 
     afterAll(async () => {
@@ -21,9 +28,12 @@ describe("Testing return register", () => {
                 "email": "register@mail.com",
                 "password": "senha123"
             })
+        
+        if(!response || response.status != 200){
+            await sequelize.close()
+            await server.close()
+        }
 
-        await sequelize.close()
-        await server.close()
     })
     test("Should return 400 if there are empty fields", async () => {
         const response = await request(`http://localhost:${process.env.PORT_API}`)
