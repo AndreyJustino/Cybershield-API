@@ -17,10 +17,13 @@ describe("Testing response getUser", () => {
     let response;
     beforeAll(async () => {
         await sequelize.sync().then(async () => {
+            //sincronizando e autenticando o banco, depois testando a conexão
             await sequelize.authenticate()
 
             response = await testConnection()
 
+            // se não tiver, ele vai rodar a aplicação e registrar um usuario
+            // para ser usado nos testes
             if(!response || response.statusCode != 200){
                 server = app.listen(process.env.PORT_API)
         
@@ -28,6 +31,7 @@ describe("Testing response getUser", () => {
                     .post("/register")
                     .send(objUser)
             } else{
+                // se a aplicação ja tiver rodando, ele apenas vai criar o usuario
                 await request(`http://localhost:${process.env.PORT_API}`)
                     .post("/register")
                     .send(objUser)
@@ -37,13 +41,15 @@ describe("Testing response getUser", () => {
     })
 
     afterAll(async () => {
+        // após o fim dos teste ele vai deletar o usuario criado no inicio
         await request(`http://localhost:${process.env.PORT_API}`)
             .delete("/deleteUser")
             .send({
                 "email": "admin@mail.com",
                 "password": "senha123"
             })
-
+        
+        // fechando conexão se a aplicação tiver sido ligada por codigo
         if(!response || response.statusCode != 200){
             await sequelize.close()
             await server.close()
