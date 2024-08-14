@@ -11,10 +11,9 @@ describe("testando controller:PostIncidentType",() =>{
             id:2,name:"suarez",gmail:"susu@gmail.com",
             id:3,name:"coutinho",gmail:"coutao@gmail.com",
         }]
-        
         incidentComent.create.mockResolveValue(MyMock)
-        const response = await request(app).post("/newIncidentComent")
        
+        const response = await request(app).post("/newIncidentComent")
         expect(response.status).toBe(200)
         expect(response.body).toEqual(MyMock)
     })
@@ -22,10 +21,9 @@ describe("testando controller:PostIncidentType",() =>{
 
 describe("testando controller:PostIncidentType",()=>{
     it("deve criar um novo incident Type", async()=>{
-        
         incidentComent.create.mockRejectValue(new Error("Error"))
-        const response = await request(app).post("/newIncidentComent")
        
+        const response = await request(app).post("/newIncidentComent")
         expect(response.status).toBe(500)
         expect(response.body).toEqual({
             error:"erro ao criar novo comentario de incidente"
