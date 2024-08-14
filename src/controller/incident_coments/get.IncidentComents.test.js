@@ -1,16 +1,13 @@
 import app from "../../app.js";
 import { incidentComent } from "../../model/model.js";
 import request from "supertest";
+import { mockTastDB } from "../../../Mock/dataBaseMock.js";
 
 jest.mock("../../model/model.js")
 
 describe("test controller: getIncidentTypes",()=>{
     it("deve mandar todos oscomentarios de incidentes",async()=>{
-        const MyMock = [{
-            id:1,name:"neymar",gmail:"neyma@gmail.com",
-            id:2,name:"suarez",gmail:"susu@gmail.com",
-            id:3,name:"coutinho",gmail:"coutao@gmail.com",
-        }]
+        const MyMock = mockTastDB
        incidentComent.findAll.mockResolvevalue(MyMock)
        const response = await request(app).get("/AllIncidentsComents") 
        expect(response.status).toBe(200)
