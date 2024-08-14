@@ -1,15 +1,12 @@
 import app from "../../app.js";
 import { incidentComent } from "../../model/model.js";
 import request from "supertest";
+import { mockTastDB } from "../../../Mock/dataBaseMock.js";
 
 jest.mock("../../model/model.js")
 describe("teste de execuçao Controller:UpdateIncidentComent",()=>{
     it("deve de fato atualizar um dado", async ()=>{
-        const MyMock = [{
-            id:1,name:"neymar",gmail:"neyma@gmail.com",
-            id:2,name:"suarez",gmail:"susu@gmail.com",
-            id:3,name:"coutinho",gmail:"coutao@gmail.com",
-        }] 
+        const MyMock = mockTastDB
         incidentComent.mockResolveValue(MyMock)
         
         const response = await request(app).update("/UpIncidentsComents")
