@@ -1,5 +1,6 @@
 import { Router } from "express";
 
+// importanto funções que vão ser usadas nas rotas
 import register from "../controller/user/register.controller.js";
 import getAllUser from "../controller/user/getAllUser.controller.js";
 import update from "../controller/user/update.controller.js";

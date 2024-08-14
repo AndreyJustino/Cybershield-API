@@ -1,9 +1,9 @@
+// importações de funções e bibliotecas
 import sequelize from "./src/database/config.js"
 import dotenv from "dotenv"
 import app from "./src/app.js"
 
 dotenv.config()
-
 
 const PORT = process.env.PORT_API || 3000
 

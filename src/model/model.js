@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../database/config.js';
 
-// criando tabela usuario
+// criando tabelas
 export const usuario = sequelize.define('Usuario', {
   id: {
     type: DataTypes.INTEGER,

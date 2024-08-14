@@ -4,11 +4,13 @@ async function deleteUser(req,res) {
     try{
         const user = req.body
 
+        //verificando se todos os campos estão preenchidos
         if(!user.email || !user.password){
             res.status(400).json({
                 message: "Preencha todos os campos."
             })
         } else{
+            // buscando o usuario
             const userDB = await usuario.findOne({
                 where: {
                     email: user.email,
@@ -20,6 +22,8 @@ async function deleteUser(req,res) {
                     message: "Usuário não encontrado."
                 })
             } else{
+                //verificando se senha fornecida é a mesma que esta no banco
+                // se for igual, ai sim podera ser feito o delete
                 if(userDB.password === user.password){
                     const userDelete = await usuario.destroy({
                         where: {

@@ -11,6 +11,7 @@ describe("Testing return register", () => {
     let response;
     beforeAll(async () => {
         await sequelize.sync().then(async () => {
+            //sincronizando e autenticando o banco, depois testando a conexão
             await sequelize.authenticate()
 
             response = await testConnection()
