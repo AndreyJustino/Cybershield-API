@@ -15,6 +15,13 @@ describe("Testing return register", () => {
     })
 
     afterAll(async () => {
+        await request(`http://localhost:${process.env.PORT_API}`)
+            .delete("/deleteUser")
+            .send({
+                "email": "register@mail.com",
+                "password": "senha123"
+            })
+
         await sequelize.close()
         await server.close()
     })
@@ -52,12 +59,6 @@ describe("Testing return register", () => {
         expect(response.status).toBe(409)
         expect(response.body).toStrictEqual({"message": "Email já cadastrado!"})
         
-        await request(`http://localhost:${process.env.PORT_API}`)
-            .delete("/deleteUser")
-            .send({
-                "email": "register@mail.com",
-                "password": "senha123"
-            })
     })
 
 })

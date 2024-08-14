@@ -23,5 +23,6 @@ describe("Testing return getAllUser", () => {
         const response = await request(`http://localhost:${process.env.PORT_API}`)
             .get("/allUser")
         expect(response.status).toBe(200)
+        expect("data" in response.body).toBe(true)
     })
 })

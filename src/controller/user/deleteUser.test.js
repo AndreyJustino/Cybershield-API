@@ -12,9 +12,24 @@ describe("Testing response deleteUser", () => {
         await sequelize.sync()
         await sequelize.authenticate()
         server = app.listen(process.env.PORT_API)
+        
+        await request(`http://localhost:${process.env.PORT_API}`)
+            .post('/register')
+            .send({
+                "name": "delete",
+                "password": "delete123",
+                "email": "delete@email.com",
+            })
     })
 
     afterAll(async () => {
+        await request(`http://localhost:${process.env.PORT_API}`)
+            .delete("/deleteUser")
+            .send({
+                "email": "delete@email.com",
+                "password": "delete123"
+            })
+            
         await sequelize.close()
         await server.close()
     })
@@ -41,13 +56,7 @@ describe("Testing response deleteUser", () => {
     })
 
     test("Should return status 401 if password is incorrect", async () => {
-        await request(`http://localhost:${process.env.PORT_API}`)
-            .post('/register')
-            .send({
-                "name": "delete",
-                "password": "delete123",
-                "email": "delete@email.com",
-            })
+        
         
         const response = await request(`http://localhost:${process.env.PORT_API}`)
             .delete('/deleteUser')

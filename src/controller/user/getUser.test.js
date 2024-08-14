@@ -5,6 +5,12 @@ import app from '../../app';
 
 dotenv.config()
 
+const objUser = {
+    name: "Admin",
+    password: "senha123",
+    email: "admin@mail.com"
+}
+
 describe("Testing response getUser", () => {
     let server;
 
@@ -12,9 +18,20 @@ describe("Testing response getUser", () => {
         await sequelize.sync()
         await sequelize.authenticate()
         server = app.listen(process.env.PORT_API)
+        
+        await request(`http://localhost:${process.env.PORT_API}`)
+            .post("/register")
+            .send(objUser)
     })
 
     afterAll(async () => {
+        await request(`http://localhost:${process.env.PORT_API}`)
+            .delete("/deleteUser")
+            .send({
+                "email": "admin@mail.com",
+                "password": "senha123"
+            })
+
         await sequelize.close()
         await server.close()
     })
@@ -22,17 +39,16 @@ describe("Testing response getUser", () => {
         const response = await request(`http://localhost:${process.env.PORT_API}`)
             .get("/getUser/admin@mail.com")
         expect(response.status).toBe(202)
-        expect(response.body).toStrictEqual({
-            "message": "Usuario encontrado",
-            "user": {
-                "id": 2,
-                "name": "Admin",
-                "password": "senha123",
-                "email": "admin@mail.com",
-                "createdAt": "2024-08-10T19:40:55.000Z",
-                "updatedAt": "2024-08-10T19:40:55.000Z"
-            }
-        })
+        
+        const body = response.body.user
+
+        function comparation(obj1, obj2){
+            return obj1.name == obj2.name &&
+                   obj1.email == obj2.email &&
+                   obj1.password == obj2.password
+        }
+        
+        expect(comparation(body, objUser)).toBe(true)
     })
 
     test("Should return status 404 and body if user not found", async () => {

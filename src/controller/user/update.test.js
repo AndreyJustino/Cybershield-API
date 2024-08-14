@@ -12,9 +12,24 @@ describe("Testing return update", () => {
         await sequelize.sync()
         await sequelize.authenticate()
         server = app.listen(process.env.PORT_API)
+
+        await request(`http://localhost:${process.env.PORT_API}`)
+            .post("/register")
+            .send({
+                "name": "Admin",
+                "password": "senha123",
+                "email": "admin@mail.com",
+            })
     })
 
     afterAll(async () => {
+        await request(`http://localhost:${process.env.PORT_API}`)
+            .delete("/deleteUser")
+            .send({
+                "email": "admin@mail.com",
+                "password": "senha123"
+            })
+
         await sequelize.close()
         await server.close()
     })
@@ -46,7 +61,7 @@ describe("Testing return update", () => {
         const response = await request(`http://localhost:${process.env.PORT_API}`)
             .put("/updateUser")
             .send({
-                "name": "Admin",
+                "name": "Admin1",
                 "password": "senha123",
                 "email": "admin@mail.com",
             })
