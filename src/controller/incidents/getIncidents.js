@@ -19,4 +19,4 @@ async function getAllIncidents(req, res) {
   }
 }
 
-export { getAllIncidents };
+export default getIncidents;

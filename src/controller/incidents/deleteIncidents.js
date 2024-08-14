@@ -20,4 +20,4 @@ async function deleteIncident(req, res) {
     });
   }
 }
-export { deleteIncident };
+export default deleteIncidents;

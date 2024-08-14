@@ -32,4 +32,4 @@ async function createIncident(req, res) {
   }
 }
 
-export { postIncident };
+export default postIncidents;

@@ -33,4 +33,4 @@ async function updateIncident(req, res) {
   }
 }
 
-export { updateIncident };
+export default updateIncident;
