@@ -1,5 +1,6 @@
 import express from "express"
 import cors from "cors"
+import { setupSwagger } from "../doc/swaggerConfig.js"
 
 //importação de rotas
 import routesUser from "./routes/user.routes.js"
@@ -11,6 +12,7 @@ const app = express()
 
 app.use(express.json())
 app.use(cors({origin: "https://cybershield-api.onrender.com"}))
+setupSwagger(app)
 
 app.use("/", routesComent)
 app.use("/", routesUser)

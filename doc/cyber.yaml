@@ -1,0 +1,207 @@
+openapi: 3.0.0
+info:
+  title: API de Incidentes
+  version: 1.0.0
+paths:
+  /users:
+    get:
+      summary: Lista todos os usuários
+      responses:
+        200:
+          description: Lista de usuários
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+
+  /incidents:
+    get:
+      summary: Lista todos os incidentes
+      responses:
+        200:
+          description: Lista de incidentes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Incident'
+
+  /incident_comments:
+    get:
+      summary: Lista todos os comentários de incidentes
+      responses:
+        200:
+          description: Lista de comentários de incidentes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IncidentComment'
+
+  /reductions_actions:
+    get:
+      summary: Lista todas as ações de redução
+      responses:
+        200:
+          description: Lista de ações de redução
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReductionAction'
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID do usuário, gerado automaticamente
+        name:
+          type: string
+          description: Nome do usuário
+        password:
+          type: string
+          description: Senha do usuário
+        email:
+          type: string
+          description: Email do usuário
+      required:
+        - id
+        - name
+        - password
+        - email
+      example:
+        id: 1
+        name: João Silva
+        password: senha123
+        email: joao.silva@gmail.com
+
+    Incident:
+      type: object
+      properties:
+        incidents_id:
+          type: integer
+          description: ID do incidente, gerado automaticamente
+        user_id:
+          type: integer
+          description: ID do usuário que reportou o incidente
+        incident_type_id:
+          type: integer
+          description: Tipo do incidente
+        presentation:
+          type: string
+          description: Descrição da apresentação do incidente
+        department_id:
+          type: integer
+          description: ID do departamento relacionado
+        username:
+          type: string
+          description: Nome de usuário
+        severity:
+          type: string
+          description: Gravidade do incidente
+        date_reported:
+          type: string
+          format: date-time
+          description: Data em que o incidente foi reportado
+        damage_to_device:
+          type: string
+          description: Dano ao dispositivo
+        what_damage:
+          type: string
+          description: Descrição do dano
+      required:
+        - incidents_id
+        - user_id
+        - incident_type_id
+        - presentation
+        - department_id
+        - username
+        - severity
+        - damage_to_device
+        - what_damage
+      example:
+        incidents_id: 1
+        user_id: 123
+        incident_type_id: 2
+        presentation: Descrição do incidente
+        department_id: 5
+        username: joao.silva
+        severity: Alta
+        date_reported: '2024-08-15T12:00:00Z'
+        damage_to_device: Sim
+        what_damage: Tela quebrada
+
+    IncidentComment:
+      type: object
+      properties:
+        comment_id:
+          type: integer
+          description: ID do comentário, gerado automaticamente
+        incident_Id:
+          type: integer
+          description: ID do incidente associado
+        comment:
+          type: string
+          description: Comentário sobre o incidente
+        make:
+          type: string
+          format: date-time
+          description: Data da criação do comentário
+        improvement:
+          type: string
+          format: date-time
+          description: Data da melhoria (se aplicável)
+      required:
+        - comment_id
+        - incident_Id
+      example:
+        comment_id: 1
+        incident_Id: 1
+        comment: Comentário sobre o incidente
+        make: '2024-08-15T12:00:00Z'
+        improvement: '2024-08-16T12:00:00Z'
+
+    ReductionAction:
+      type: object
+      properties:
+        action_id:
+          type: integer
+          description: ID da ação, gerado automaticamente
+        department_id:
+          type: integer
+          description: ID do departamento associado
+        incident_id:
+          type: integer
+          description: ID do incidente associado
+        action_date:
+          type: string
+          format: date-time
+          description: Data em que a ação foi tomada
+        action_taken:
+          type: string
+          description: Ação tomada
+        effectiveness:
+          type: string
+          description: Eficácia da ação
+      required:
+        - action_id
+        - department_id
+        - incident_id
+        - action_date
+        - action_taken
+        - effectiveness
+      example:
+        action_id: 1
+        department_id: 3
+        incident_id: 1
+        action_date: '2024-08-15T12:00:00Z'
+        action_taken: Ação tomada para resolver o incidente
+        effectiveness: Alta
