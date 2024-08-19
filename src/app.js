@@ -11,7 +11,7 @@ import routerIcidentType from "./routes/incidentType.routes.js"
 const app = express()
 
 app.use(express.json())
-app.use(cors({origin: "https://cybershield-api.onrender.com"}))
+app.use(cors({origin: "*"}))
 setupSwagger(app)
 
 app.use("/", routesComent)
